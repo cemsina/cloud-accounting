@@ -10,5 +10,6 @@ namespace CloudAccounting
     {
         public static Settings settings;
         public static List<Product> ProductList;
+        public static CloudObject Cloud = new CloudObject("");
     }
 }

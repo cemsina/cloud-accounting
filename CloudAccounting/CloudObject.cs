@@ -26,11 +26,12 @@ namespace CloudAccounting
         {
             this.Ref.On("value", (snapshot, child, context) => {
                 this.Value = JObject.Parse(snapshot.Value());
+                Debug.WriteLine("Veri geldi");
             });
         }
         public void Set(string content)
         {
-
+            Ref.Set(content);
         }
     }
 }

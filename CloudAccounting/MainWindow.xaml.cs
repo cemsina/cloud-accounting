@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 namespace CloudAccounting
 {
@@ -25,19 +26,22 @@ namespace CloudAccounting
         {
             InitializeComponent();
             Project.settings = new Settings();
-
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            Product p = new Product();
-            p.Name = textname.Text;
-            p.Type = texttype.Text;
-            p.Barcode = textbar.Text;
-            p.TaxPercent = texttax.Text.ToDouble();
-            p.PriceWithoutTax = textpw.Text.ToDouble();
-            p.PriceWithTax = textpwt.Text.ToDouble();
-            Project.ProductList.Add(p);
+            Product p = new Product("testid");
+            textname.Text = p.Name;
+            texttype.Text = p.Type;
+            textbar.Text = p.Barcode;
+            texttax.Text = p.TaxPercent.ToString();
+            textpw.Text = p.PriceWithoutTax.ToString();
+            textpwt.Text = p.PriceWithTax.ToString();
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            Project.Cloud.GetValue();
         }
     }
 }
