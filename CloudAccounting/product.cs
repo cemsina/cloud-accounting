@@ -46,11 +46,11 @@ namespace CloudAccounting
         }
         private string GetCloudValue(string propName)
         {
-            return Project.Cloud.Value["products"][this.id][propName].ToString();
+            return Project.Cloud.Value["Products"][this.id][propName].ToString();
         }
         private void SetCloudValue(string propName,string value)
         {
-            Project.Cloud.Value["products"][this.id][propName] = value;
+            Project.Cloud.Value["Products"][this.id][propName] = value;
         }
     }
 }
