@@ -8,6 +8,7 @@ namespace CloudAccounting
 {
     public static class Global
     {
+        public static Project Prj;
         public static string CreateUniqueID()
         {
             string id = "";
@@ -18,9 +19,14 @@ namespace CloudAccounting
             foreach (char t in tickArr) id += chList[Convert.ToInt32(t.ToString())].ToString();
             return id;
         }
+        public static string ToTimestamp(this DateTime datet)
+        {
+            return (DateTime.Now.Ticks - 621355968000000000).ToString();
+        }
         public static double ToDouble(this string str)
         {
             return Convert.ToDouble(str);
         }
+
     }
 }

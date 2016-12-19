@@ -15,7 +15,7 @@ namespace CloudAccounting
         public JObject Value;
         private IFirebase Ref
         {
-            get { return Project.settings.App.Child(this.Path); }
+            get { return Global.Prj.settings.App.Child(this.Path); }
             set { }
         }
         public CloudObject(string path)

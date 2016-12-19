@@ -25,7 +25,9 @@ namespace CloudAccounting
         public MainWindow()
         {
             InitializeComponent();
-            Project.settings = new Settings();
+            Global.Prj = new Project();
+            Global.Prj.Cloud.GetValue();
+
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -41,7 +43,7 @@ namespace CloudAccounting
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            Project.Cloud.GetValue();
+            Global.Prj.Save();
         }
     }
 }
