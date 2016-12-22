@@ -12,6 +12,7 @@ namespace CloudAccounting
         public Settings settings;
         public List<Product> ProductList;
         public CloudObject Cloud;
+        public MainForm Form;
         public Project()
         {
             this.settings = new Settings();
@@ -24,6 +25,22 @@ namespace CloudAccounting
             string path = folderpath + DateTime.Now.ToTimestamp() + ".cloudaccounting";
             if (!File.Exists(path)) File.Create(path).Close();
             File.WriteAllText(path, this.Cloud.Value.ToString());
+        }
+        public void ChangeUI(UserInterfaceEnum ui)
+        {
+            switch (ui)
+            {
+                case UserInterfaceEnum.Add_Product:
+
+                    Global.Prj.Form.MainPanel.Controls.Clear();
+
+                    break;
+
+            }
+        }
+        public enum UserInterfaceEnum
+        {
+            Add_Product
         }
     }
 }
